@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: toss-cap-game
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: VITE_BACKEND_URL
+        value: "" # 빈 칸으로 두면 socketClient.js가 window.location.origin을 자동 사용하게 설계됨
