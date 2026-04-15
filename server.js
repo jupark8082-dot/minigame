@@ -137,7 +137,7 @@ io.on('connection', (socket) => {
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // 클라이언트 사이드 라우팅(딥링크) 폴백
-app.get('*', (req, res) => {
+app.get('(.*)', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
