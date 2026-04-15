@@ -136,8 +136,8 @@ io.on('connection', (socket) => {
 // 프론트엔드 빌드 결과물 서빙
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// 클라이언트 사이드 라우팅(딥링크) 폴백
-app.get('(.*)', (req, res) => {
+// 클라이언트 사이드 라우팅(딥링크) 폴백 - Express 5 호환
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
